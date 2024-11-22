@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1&display=swap');
+
+:root{
+    --item1-transform: translate(-100%, -5%) scale(1.5);
+    --item1-filter: blur(30px);
+    --item1-zIndex: 11;
+    --item1-opacity: 0;
+
+    
+}
+
+body{
+    font-family: Poppins;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #555;
+}
+
+header{
+    width: 1140px;
+    max-width: 90%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+header .logo{
+    font-weight: bold;
+}
+
+header nav a{
+    margin-left: 30px;
+}
+
+.carrossel{
+    margin-top: -50px;
+    height: 880px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrossel .list{
+    position: absolute;
+    top: 0;
+    width: 1140px;
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80%;
+}
+
+.carrossel .list .item{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    font-size: 15px;
+}
+
+.carrossel .list .item img{
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carrossel .list .item .detail{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.carrossel .list .item .intro{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.carrossel .list .item:nth-child(2) .intro{
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s;
+}
+
+.carrossel .list .item:nth-child(n + 6){
+    opacity: 0;
+    pointer-events: none;
+}
+
+.carrossel .list .item:nth-child(2){
+    transform: translate(0, 0);
+    filter: blur(0);
+    z-index: 10;
+    opacity: 1;
+}
+
+.carrossel .list .item:nth-child(1){
+    transform: translate(-100%, -5%) scale(1.5);
+    filter: blur(30px);
+    z-index: 11;
+    opacity: 0;
+}
+
+.carrossel .list .item:nth-child(3){
+    transform: translate(50%, 10%) scale(0.8);
+    filter: blur(10px);
+    z-index: 1;
+    opacity: 8;
+}
+
+.carrossel .list .item:nth-child(4){
+    transform: translate(90%, 20%) scale(0.5);
+    filter: blur(30px);
+    z-index: 1;
+    opacity: 8;
+}
+
+.carrossel .list .item:nth-child(5){
+    transform: translate(120%, 30%) scale(0.3);
+    filter: blur(40px);
+    z-index: 0;
+    opacity: 7;
+    pointer-events: none;
+}
+
+.arrows{
+    position: absolute;
+    bottom: 10px;
+    width: 1140px;
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrows #next,
+.arrows #prev{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+    border: 1px solid #555;
+}
+
+.arrows #back{
+    font-family: Poppins;
+    font-weight: 500;
+    border: none;
+    border-bottom: 1px solid #555;
+    letter-spacing: 3px;
+    background-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.carrossel .list .item .intro .title{
+    font-size: 2em;
+    line-height: 0.8em;
+}
+
+.carrossel .list .item .intro .topic{
+    font-size: 4em;
+    font-weight: 500;
+}
+
+.carrossel .list .item .intro .des{
+    font-size: small;
+}
+
+.carrossel .list .item .intro .seeMore{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    font-family: Poppins;
+    font-weight: bold;
+    margin-top: 1.2em;
+    padding: 5px 0;
+}
+
+.carrossel .list .item:nth-child(2) .intro .title,
+.carrossel .list .item:nth-child(2) .intro .topic,
+.carrossel .list .item:nth-child(2) .intro .des,
+.carrossel .list .item:nth-child(2) .intro .seeMore{
+    opacity: 0;
+    animation: showContent 0.5s 0.7s ease-in-out 1 forwards;
+}
+
+@keyframes showContent {
+    from{
+        transform: translateY(50px);
+        filter: blur(30px);
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.carrossel .list .item:nth-child(2) .intro .topic{
+    animation-delay: 0.9s;
+}
+
+.carrossel .list .item:nth-child(2) .intro .des{
+    animation-delay: 1.1s;
+}
+
+.carrossel .list .item:nth-child(2) .intro .seeMore{
+    animation-delay: 1.3s;
+}
+
+.carrossel .list .item:nth-child(1){
+    animation: positionItem2 0.5s ease-in-out 1 forwards;
+}
+
+@keyframes positionItem2 {
+    from{
+    transform: translate(0, 0);
+    filter: blur(0);
+    z-index: 10;
+    opacity: 1;
+    }
+}
+
