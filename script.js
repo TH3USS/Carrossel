@@ -5,16 +5,42 @@ let seeMoreButtons = document.querySelectorAll('.seeMore');
 let carrossel = document.querySelector('.carrossel');
 let listHTML = document.querySelector('.carrossel .list');
 
-nextButton.onclick = function(){
+nextButton.onclick = function () {
     showSlider('next');
 }
-prevButton.onclick =function(){
+prevButton.onclick = function () {
     showSlider('prev');
 }
+
+let unAcceptClick;
 const showSlider = (type) => {
+    nextButton.style.pointerEvents = 'none';
+    prevButton.style.pointerEvents = 'none';
+
+    carrossel.classList.remove('prev', 'next');
     let items = document.querySelectorAll('.carrossel .list .item');
-    if(type === 'next'){
+    if (type === 'next') {
         listHTML.appendChild(items[0]);
         carrossel.classList.add('next')
+    } else {
+        let positionLast = items.length - 1;
+        listHTML.prepend(items[positionLast]);
+        carrossel.classList.add('prev');
     }
+
+    clearTimeout(unAcceptClick);
+    unAcceptClick = setTimeout(() => {
+        nextButton.style.pointerEvents = 'auto';
+        prevButton.style.pointerEvents = 'auto';
+    }, 2000);
+}
+
+seeMoreButtons.forEach(button => {
+    button.onclick = function(){
+        carrossel.classList.add('showDetail');
+    }
+})
+
+backButton.onclick = function(){
+    carrossel.classList.remove.apply('showDetail');
 }
