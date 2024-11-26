@@ -42,5 +42,5 @@ seeMoreButtons.forEach(button => {
 })
 
 backButton.onclick = function(){
-    carrossel.classList.remove.apply('showDetail');
+    carrossel.classList.remove('showDetail');
 }
