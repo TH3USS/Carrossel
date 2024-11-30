@@ -73,6 +73,11 @@ header nav a {
     transform: translateY(-50%);
 }
 
+.a{
+    filter: brightness(0) invert(1) contrast(2) sepia(0);
+    background-color: transparent;
+}
+
 .carrossel .list .item .detail {
     opacity: 0;
     pointer-events: none;
